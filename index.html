@@ -3,127 +3,984 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misba Anjum | CSE Student</title>
+
+    <title>Misba Anjum | My Portfolio</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f6f8;
+            font-family: "Segoe UI", Arial, sans-serif;
             color: #333;
+            background: #fff7fc;
+            overflow-x: hidden;
         }
 
-        header {
-            background-color: #1f4e79;
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(77, 25, 122, 0.85);
+            backdrop-filter: blur(12px);
+
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd166;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
             color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd166;
+        }
+
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 50px 20px;
+
+            padding: 120px 20px 60px;
+
+            background:
+                radial-gradient(circle at 10% 20%, #ff7eb3 0%, transparent 25%),
+                radial-gradient(circle at 90% 30%, #65d6ff 0%, transparent 25%),
+                radial-gradient(circle at 50% 90%, #c084fc 0%, transparent 30%),
+                linear-gradient(135deg, #4b1d78, #7b2cbf, #4361ee);
+            
+            color: white;
+            position: relative;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 40px;
+        .hero-content {
+            max-width: 850px;
         }
 
-        header p {
-            font-size: 18px;
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 65px;
+
+            background: linear-gradient(135deg, #ffd166, #ff70a6);
+            border: 6px solid rgba(255,255,255,0.7);
+
+            box-shadow: 0 0 40px rgba(255,209,102,0.6);
         }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #ffd166;
+        }
+
+        .hero h2 {
+            font-size: 27px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 19px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            margin: 8px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #ffd166;
+            color: #4b1d78;
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+
+        /* ---------- COMMON ---------- */
 
         section {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 90px 8%;
         }
 
-        h2 {
-            color: #1f4e79;
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
         }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #5a189a;
+        }
+
+        .section-title p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+
+        /* ---------- ABOUT ---------- */
+
+        .about {
+            background: linear-gradient(135deg, #fff0f6, #eef7ff);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .card {
+            padding: 35px;
+            border-radius: 25px;
+
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 15px 35px rgba(90,24,154,0.12);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #7b2cbf;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        /* ---------- EDUCATION ---------- */
+
+        .education {
+            background: linear-gradient(135deg, #e8faff, #f5e8ff);
+        }
+
+        .education-card {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            background: linear-gradient(135deg, #4361ee, #7b2cbf);
+            color: white;
+
+            box-shadow: 0 20px 40px rgba(67,97,238,0.3);
+
+            text-align: center;
+        }
+
+        .education-card h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .percentage {
+            font-size: 55px;
+            font-weight: bold;
+            color: #ffd166;
+            margin: 15px;
+        }
+
+
+        /* ---------- SKILLS ---------- */
 
         .skills {
+            background: #fff;
+        }
+
+        .skills-container {
+            max-width: 900px;
+            margin: auto;
+
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
         }
 
         .skill {
-            background-color: #1f4e79;
+            padding: 15px 25px;
+            border-radius: 30px;
+
             color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
+            font-weight: bold;
+
+            transition: 0.3s;
         }
 
-        footer {
-            text-align: center;
-            background-color: #1f4e79;
-            color: white;
-            padding: 20px;
-            margin-top: 30px;
+        .skill:hover {
+            transform: scale(1.1);
         }
+
+        .skill:nth-child(1) { background: #f72585; }
+        .skill:nth-child(2) { background: #4361ee; }
+        .skill:nth-child(3) { background: #06d6a0; }
+        .skill:nth-child(4) { background: #ff9f1c; }
+        .skill:nth-child(5) { background: #7209b7; }
+        .skill:nth-child(6) { background: #00b4d8; }
+
+
+        /* ---------- FAVORITES ---------- */
+
+        .favorites {
+            background: linear-gradient(135deg, #fff0f5, #fff8e7);
+        }
+
+        .favorite-container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .favorite {
+            min-height: 280px;
+
+            padding: 35px 25px;
+
+            border-radius: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            transition: 0.4s;
+        }
+
+        .favorite:hover {
+            transform: translateY(-12px) rotate(1deg);
+        }
+
+        .favorite .emoji {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .favorite h3 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .golgappe {
+            background: linear-gradient(135deg, #ff512f, #f09819);
+        }
+
+        .kunafa {
+            background: linear-gradient(135deg, #8e2de2, #ff6a88);
+        }
+
+        .gobi {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+
+
+        /* ---------- FREEDOM ---------- */
+
+        .freedom {
+            background:
+                linear-gradient(rgba(38,70,83,0.75), rgba(42,157,143,0.75)),
+                linear-gradient(135deg, #219ebc, #023047);
+
+            color: white;
+            text-align: center;
+        }
+
+        .freedom .section-title h2 {
+            color: #ffd166;
+        }
+
+        .freedom-card {
+            max-width: 800px;
+            margin: auto;
+
+            padding: 45px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .freedom-card .big-emoji {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .freedom-card p {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+
+        /* ---------- DREAM ---------- */
+
+        .dream {
+            background: linear-gradient(135deg, #fff1f2, #ffe4f0, #eee1ff);
+            text-align: center;
+        }
+
+        .dream-card {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 50px 35px;
+
+            border-radius: 30px;
+
+            background: white;
+
+            box-shadow: 0 20px 50px rgba(236,72,153,0.2);
+
+            position: relative;
+        }
+
+        .heart {
+            font-size: 70px;
+            color: #f72585;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .dream-card h3 {
+            font-size: 30px;
+            color: #7b2cbf;
+            margin: 20px 0;
+        }
+
+        .dream-card p {
+            font-size: 19px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .highlight {
+            color: #f72585;
+            font-weight: bold;
+        }
+
+
+        /* ---------- GOALS ---------- */
+
+        .goals {
+            background: #f8f7ff;
+        }
+
+        .goals-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .goal {
+            padding: 30px 20px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            background: white;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .goal:hover {
+            transform: translateY(-8px);
+        }
+
+        .goal-icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .goal h3 {
+            color: #5a189a;
+            margin-bottom: 10px;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            padding: 45px 20px;
+
+            text-align: center;
+
+            color: white;
+
+            background: linear-gradient(135deg, #3c096c, #4361ee);
+        }
+
+        footer h2 {
+            color: #ffd166;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin: 6px;
+        }
+
+        .footer-heart {
+            color: #ff70a6;
+        }
+
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 4%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .favorite-container {
+                grid-template-columns: 1fr;
+            }
+
+            .goals-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 19px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 65px 5%;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .goals-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <header>
-        <h1>Misba Anjum</h1>
-        <p>CSE 2nd Year Student | Jain Institute of Technology, Davanagere</p>
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">
+            Misba<span>.</span>
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#favorites">Favorites</a></li>
+            <li><a href="#dream">Dream</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="profile-circle">
+                👩🏻‍💻
+            </div>
+
+            <h1>Hi, I'm <span>Misba Anjum</span> 💜</h1>
+
+            <h2>Computer Science & Engineering Student</h2>
+
+            <p>
+                2nd Year • Jain Institute of Technology, Davanagere
+            </p>
+
+            <p>
+                Learning • Growing • Dreaming • Achieving ✨
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    Explore My World ✨
+                </a>
+
+                <a href="#dream" class="btn btn-secondary">
+                    My Dream ❤️
+                </a>
+            </div>
+
+        </div>
+
     </header>
 
-    <section>
-        <h2>About Me</h2>
-        <p>
-            Hello! My name is <strong>Misba Anjum</strong>.
-            I am a 2nd year Computer Science and Engineering student
-            at Jain Institute of Technology, Davanagere.
-        </p>
 
-        <p>
-            I am currently learning GitHub and improving my programming
-            and technical skills.
-        </p>
-    </section>
+    <!-- ABOUT -->
 
-    <section>
-        <h2>Education</h2>
-        <p>
-            <strong>Course:</strong> Computer Science and Engineering (CSE)
-        </p>
-        <p>
-            <strong>Year:</strong> 2nd Year
-        </p>
-        <p>
-            <strong>College:</strong> Jain Institute of Technology, Davanagere
-        </p>
-        <p>
-            <strong>1st Year Percentage:</strong> 83%
-        </p>
-    </section>
+    <section class="about" id="about">
 
-    <section>
-        <h2>Skills & Learning</h2>
-
-        <div class="skills">
-            <div class="skill">GitHub</div>
-            <div class="skill">HTML</div>
-            <div class="skill">C Programming</div>
-            <div class="skill">Computer Science</div>
+        <div class="section-title">
+            <h2>🌸 About Me</h2>
+            <p>A little introduction about me</p>
         </div>
+
+        <div class="about-container">
+
+            <div class="card">
+
+                <h3>👩‍💻 Who Am I?</h3>
+
+                <p>
+                    Hello! I'm <strong>Misba Anjum</strong>, a 2nd year
+                    Computer Science and Engineering student at
+                    Jain Institute of Technology, Davanagere.
+                </p>
+
+                <br>
+
+                <p>
+                    I am currently learning GitHub and continuously
+                    improving my technical and programming skills.
+                    I believe that learning something new every day
+                    will help me create a better future.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🌱 My Journey</h3>
+
+                <p>
+                    My first-year academic score was
+                    <strong>83%</strong>, and now I want to work harder
+                    and improve myself further.
+                </p>
+
+                <br>
+
+                <p>
+                    My aim is to develop strong skills, perform well
+                    academically and prepare myself for a good
+                    placement.
+                </p>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <section>
-        <h2>My Goal</h2>
-        <p>
-            My goal is to continuously improve my technical skills,
-            learn new technologies, contribute to projects, and build
-            a successful career in the field of Computer Science.
-        </p>
+
+    <!-- EDUCATION -->
+
+    <section class="education" id="education">
+
+        <div class="section-title">
+            <h2>🎓 My Education</h2>
+            <p>My academic journey</p>
+        </div>
+
+        <div class="education-card">
+
+            <h3>Computer Science & Engineering</h3>
+
+            <p>
+                Jain Institute of Technology, Davanagere
+            </p>
+
+            <p>
+                Currently studying in <strong>2nd Year</strong>
+            </p>
+
+            <div class="percentage">
+                83%
+            </div>
+
+            <p>
+                First Year Academic Performance 🎉
+            </p>
+
+        </div>
+
     </section>
+
+
+    <!-- SKILLS -->
+
+    <section class="skills" id="skills">
+
+        <div class="section-title">
+            <h2>💻 My Skills</h2>
+            <p>Things I am learning and improving</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill">🐙 GitHub</div>
+            <div class="skill">🌐 HTML</div>
+            <div class="skill">💻 C Programming</div>
+            <div class="skill">🧠 Problem Solving</div>
+            <div class="skill">📚 Learning</div>
+            <div class="skill">🚀 Future Technologies</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAVORITES -->
+
+    <section class="favorites" id="favorites">
+
+        <div class="section-title">
+            <h2>🍴 Things I Love</h2>
+            <p>Because life needs a little fun too! 😋</p>
+        </div>
+
+        <div class="favorite-container">
+
+            <div class="favorite golgappe">
+
+                <div class="emoji">🥙</div>
+
+                <h3>Golgappe ❤️</h3>
+
+                <p>
+                    My absolute favorite!
+                    Golgappe win over Gobi Manchurian anytime. 😋
+                </p>
+
+            </div>
+
+
+            <div class="favorite kunafa">
+
+                <div class="emoji">🍫</div>
+
+                <h3>Kunafa Chocolate 💜</h3>
+
+                <p>
+                    My favorite sweet!
+                    A perfect combination of sweetness and happiness.
+                </p>
+
+            </div>
+
+
+            <div class="favorite gobi">
+
+                <div class="emoji">🥦</div>
+
+                <h3>Gobi Manchurian</h3>
+
+                <p>
+                    It's tasty...
+                    but sorry, Golgappe are still the winner! 😂
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FREEDOM -->
+
+    <section class="freedom">
+
+        <div class="section-title">
+            <h2>🌈 My Kind of Freedom</h2>
+            <p style="color:white;">
+                Creating memories with people I love
+            </p>
+        </div>
+
+        <div class="freedom-card">
+
+            <div class="big-emoji">
+                🏞️👭✈️
+            </div>
+
+            <p>
+                I love the feeling of freedom —
+                going on trips with my friends, exploring new places,
+                laughing together and creating memories that I can
+                remember forever.
+            </p>
+
+            <br>
+
+            <p>
+                For me, life is not only about studying and working.
+                It's also about enjoying the journey. 💙
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- GOALS -->
+
+    <section class="goals">
+
+        <div class="section-title">
+            <h2>🚀 My Goals</h2>
+            <p>The things I want to achieve</p>
+        </div>
+
+        <div class="goals-container">
+
+            <div class="goal">
+                <div class="goal-icon">📚</div>
+                <h3>Score Well</h3>
+                <p>
+                    Improve my academic performance and score good marks.
+                </p>
+            </div>
+
+
+            <div class="goal">
+                <div class="goal-icon">💻</div>
+                <h3>Build Skills</h3>
+                <p>
+                    Learn programming and useful technologies.
+                </p>
+            </div>
+
+
+            <div class="goal">
+                <div class="goal-icon">🏢</div>
+                <h3>Placement</h3>
+                <p>
+                    Prepare myself for a good placement opportunity.
+                </p>
+            </div>
+
+
+            <div class="goal">
+                <div class="goal-icon">👩‍💻</div>
+                <h3>Engineer</h3>
+                <p>
+                    Complete my engineering journey and become a successful engineer.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DREAM -->
+
+    <section class="dream" id="dream">
+
+        <div class="section-title">
+            <h2>❤️ My Biggest Dream</h2>
+            <p>What keeps me moving forward</p>
+        </div>
+
+        <div class="dream-card">
+
+            <div class="heart">
+                ♥
+            </div>
+
+            <h3>My Dad's Dream Is My Motivation</h3>
+
+            <p>
+                My dad's dream is to see me become an engineer.
+                I want to complete my engineering journey and make
+                that dream come true.
+            </p>
+
+            <br>
+
+            <p>
+                I want to study well, build my skills, get a good
+                placement and create a successful career.
+            </p>
+
+            <br>
+
+            <p>
+                More than anything,
+                I want to see <span class="highlight">
+                happiness and pride in my dad's eyes.</span>
+                ❤️
+            </p>
+
+            <br>
+
+            <p>
+                This is one of the biggest reasons I want to keep
+                learning, keep improving and never give up.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
 
     <footer>
-        <p>© 2026 Misba Anjum | CSE Student</p>
+
+        <h2>Misba Anjum 💜</h2>
+
+        <p>
+            CSE 2nd Year | Jain Institute of Technology, Davanagere
+        </p>
+
+        <p>
+            Dreaming big • Learning every day • Making memories 🌸
+        </p>
+
+        <p>
+            Made with <span class="footer-heart">♥</span> by Misba
+        </p>
+
+        <p>
+            © 2026 Misba Anjum
+        </p>
+
     </footer>
 
 </body>
